@@ -1,0 +1,226 @@
+@import url('https://fonts.googleapis.com/css2?family=Bruno+Ace&display=swap');
+:root {
+    --background: #dee4e7;
+    --calculator: #545454;
+    --display: #75dd7e61;
+    --btns: #d0d0d0;
+    --reset: #df4a65;
+    --opr: #f06d06;
+    --text: #121212;
+}
+@import url('https://fonts.googleapis.com/css2?family=Bruno+Ace&display=swap');
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    
+}
+body {
+    background-color: var(--background);
+    transition: .5s;
+    border: #974b11;
+}
+
+@font-face{
+    font-family:'digitalFont';
+    src: url(digital-7.mono.ttf);
+}
+    
+.hero {
+    margin: 0 auto;
+    margin-top: .5em;
+}
+.info-field {
+    display: flex;
+    flex-direction: column;
+    width: 50%;
+    color: var(--text);
+    align-items: center;
+    margin: 0 auto;
+    line-height: 2rem;
+    margin-bottom: 1.5em;
+}
+.container {
+    position: relative;
+    width: 90%;
+    display: flex;
+    flex-direction: column;
+    max-width: 360px;
+    font-size: 1.5rem;
+    border-radius: 1em 1em .5em .5em;
+    padding: 1em 1em;
+    margin: 0 auto;
+    background-color: var(--calculator);
+    
+
+}
+.designer {
+    font-family: 'Bruno Ace', cursive;
+    font-size: 1rem;
+    color: #ffd700;
+    text-align: center;
+}
+.display {
+    display: flex;
+    align-items: center;
+    font-family:'digitalFont';
+    font-size: 2em;
+    justify-content: flex-end;
+    background-color: var(--display);
+    height: 50px;
+    padding: 36px 10px 22px 10px;
+    margin: .2em 0 .5em 0;
+    overflow: hidden;
+    transition: 1s;
+}
+.operation {
+    font-size: 1.1rem;
+    position: absolute;
+    left: 28px;
+    top: 55px;
+    font-family: 'digitalFont';
+}
+.calc-btns {
+    display: grid;
+    column-gap: .3em;
+    row-gap: .5em;
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+    grid-template-areas:
+                        "reset   reset   del    divide"
+                        "seven   eight   nine    mult"
+                        "four    five    six     subt"
+                        "one     two     three   add"
+                        "zero    dzero    point    equal";
+}
+
+.btn {
+    display: flex;
+    color: var(--text);
+    justify-content: center;
+    align-items: center;
+    height: 60px;
+    background-color: var(--btns);
+    border-radius: 10px;
+    cursor: pointer;
+}
+
+.reset {
+    grid-area: reset;
+    background-color: var(--reset);
+}
+.del {
+    grid-area: del;
+}
+.divide {
+    grid-area: divide;
+}
+.seven {
+    grid-area: seven;
+}
+.eight {
+    grid-area: eight;
+}
+.nine {
+    grid-area: nine;
+}
+.mult {
+    grid-area: mult;
+}
+.four {
+    grid-area: four;
+}
+.five {
+    grid-area: five;
+}
+.six {
+    grid-area: six;
+}
+.subt {
+    grid-area: subt;
+}
+.one {
+    grid-area: one;
+}
+.two {
+    grid-area: two;
+}
+.three {
+    grid-area: three;
+}
+.add {
+    grid-area: add;
+}
+.zero {
+    grid-area: zero;
+}
+.d-zero {
+    grid-area: dzero;
+}
+.point {
+    grid-area: point;
+}
+.equal {
+    grid-area: equal;
+}
+
+
+.opr {
+    background-color: var(--opr);
+}
+
+
+/* for the toggle-switch*/
+.toggle-switch {
+    margin-top: .5em;
+}
+fieldset {
+    width: 25%;
+    padding: .5em 0;
+    align-items: center;
+}
+
+.label {
+  height: 20px;
+  width: 48px;
+  margin: 0 auto;
+  background-color: #121212;
+  border-radius: 30px;
+  display: flex;
+  align-items: center;
+  cursor: pointer;
+  position: relative;
+  transition: transform 1s;
+}
+
+#checkbox {
+  display: none;
+  color: #acacac;
+}
+
+#checkbox:checked ~ .label::before {
+  left: 28px;
+  background-color: #121212;
+  background-image: linear-gradient(315deg, #121212 0%, #414141 70%);
+  transition: 0.6s;
+}
+#checkbox:checked ~ .label {
+    background-color: #dee4e7;
+    transition: transform 1s;
+}
+
+.label::before {
+  position: absolute;
+  content: "";
+  height: 16px;
+  width: 16px;
+  border-radius: 50%;
+  background-image: linear-gradient(
+                    130deg,
+                    #757272 10%,
+                    #ffffff 11%,
+                    #726f6f 62%);
+  left: 4px;
+  box-shadow: 0 2px 1px rgba(0, 0, 0, 0.3),
+              10px 10px 10px rgba(0, 0, 0, 0.3);
+  transition: 0.6s;
+}
