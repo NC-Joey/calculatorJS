@@ -152,7 +152,7 @@ const reset = () => {
 const darkMode = () => {
     r.style.setProperty('--background', '#242424');
     r.style.setProperty('--calculator', '#424557');
-    r.style.setProperty('--display', '#2cb337b8');
+    r.style.setProperty('--screen', '#2cb337b8');
     r.style.setProperty('--btns', '#646464');
     r.style.setProperty('--reset', '#cf6679');
     r.style.setProperty('--opr', '#c4651c');
@@ -163,7 +163,7 @@ const darkMode = () => {
 const lightMode = () => {
     r.style.setProperty('--background', '#dee4e7');
     r.style.setProperty('--calculator', '#545454');
-    r.style.setProperty('--display', '#75dd7e61');
+    r.style.setProperty('--screen', '#75dd7e61');
     r.style.setProperty('--btns', '#d0d0d0');
     r.style.setProperty('--reset', '#df4a65');
     r.style.setProperty('--opr', '#f06d06');

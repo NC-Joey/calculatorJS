@@ -2,7 +2,7 @@
 :root {
     --background: #dee4e7;
     --calculator: #545454;
-    --display: #75dd7e61;
+    --screen: #75dd7e61;
     --btns: #d0d0d0;
     --reset: #df4a65;
     --opr: #f06d06;
@@ -60,25 +60,25 @@ body {
     color: #ffd700;
     text-align: center;
 }
-.display {
-    display: flex;
-    align-items: center;
+.screen {
+    display: grid;
+    grid-auto-flow: row;
+    grid-template-rows: .6em 1.9em;
     font-family:'digitalFont';
-    font-size: 2em;
-    justify-content: flex-end;
-    background-color: var(--display);
-    height: 50px;
-    padding: 36px 10px 22px 10px;
+    background-color: var(--screen);
+    padding: .1em;
     margin: .2em 0 .5em 0;
     overflow: hidden;
     transition: 1s;
 }
 .operation {
-    font-size: 1.1rem;
-    position: absolute;
-    left: 28px;
-    top: 55px;
-    font-family: 'digitalFont';
+    font-size: 1.2rem;
+    overflow: visible;
+    z-index: 1;
+}
+.display {
+    text-align: end;
+    font-size: 3.5rem;
 }
 .calc-btns {
     display: grid;
