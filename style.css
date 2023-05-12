@@ -8,7 +8,6 @@
     --opr: #f06d06;
     --text: #121212;
 }
-@import url('https://fonts.googleapis.com/css2?family=Bruno+Ace&display=swap');
 * {
     box-sizing: border-box;
     margin: 0;
@@ -27,8 +26,7 @@ body {
 }
     
 .hero {
-    margin: 0 auto;
-    margin-top: .5em;
+    margin: .5em auto;
 }
 .info-field {
     display: flex;
@@ -72,13 +70,13 @@ body {
     transition: 1s;
 }
 .operation {
-    font-size: 1.2rem;
+    font-size: 1rem;
     overflow: visible;
     z-index: 1;
 }
 .display {
     text-align: end;
-    font-size: 3.5rem;
+    font-size: 3rem;
 }
 .calc-btns {
     display: grid;
