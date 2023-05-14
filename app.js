@@ -24,6 +24,7 @@ const handleNumbers = (value) => {
     if (currOperator == "=" && prevOperator == undefined) {
         buffer = value;
         operation.innerText = "";
+        currOperator = undefined;
     } else if (buffer === "0") {
         if (value == "00") {
             buffer = "0"
@@ -40,20 +41,24 @@ const handleSymbols = (value => {
     if (arithmetics.includes(value)) {
         if (prevOperator === undefined) {
             if (value == "−") {
+                if (buffer == "-") {
+                    return;
+                }
+
                 if (buffer == "0") {
                     buffer = "-";
                     screen.innerText = buffer;
-                    negate = true;
-                } else {
+                } else {        
                     prevOperator = value;
                     result = parseFloat(buffer);
                     buffer = "0";
                     screen.innerText = buffer;
                     operation.innerText = result + " " + value;
                 }
-            } else if (buffer == "0") {
+            } else if (buffer == "0" || buffer == "-") {
                 return;
             } else {
+                negate = false;
                 prevOperator = value;
                 result = parseFloat(buffer);
                 buffer = "0";
@@ -62,11 +67,17 @@ const handleSymbols = (value => {
             }
         } else {
             if (value == "−") {
+                if (buffer == "-") {
+                    return;
+                }
+
                 if (screen.innerText == "0") {
                     buffer = "-";
                     screen.innerText = buffer;
-                    negate = true;
+                } else if (buffer == "0" || buffer == "-") {
+                    return;
                 } else {
+                    negate = false;
                     currOperator = value
                     handleArithmetics(parseFloat(buffer));
                     operation.innerText = result + " " + currOperator;
@@ -74,6 +85,8 @@ const handleSymbols = (value => {
                     buffer = "0"
                     screen.innerText = "0";
                 }
+            } else if (buffer == "0" || buffer == "-") {
+                return;
             } else {
                 currOperator = value
                 handleArithmetics(parseFloat(buffer));
@@ -102,14 +115,22 @@ const handleSymbols = (value => {
             screen.innerText = buffer
         }
     } else if (value == "=") {
+        if (prevOperator == undefined || buffer == "-" || buffer == "0") {
+            return;
+        }
         operation.innerText = result + " " + prevOperator + " " + buffer + " " + "=";
         handleArithmetics(parseFloat(buffer));
         buffer = result;
         screen.innerText = result;
+        if (screen.innerText.length > 11) {
+            result > 99999999999? result = result.toExponential(3):result = result.toFixed(4);
+        }
+        buffer = result;
+        screen.innerText = buffer;
+        console.log(screen.innerText)
         currOperator = value;
         prevOperator = undefined;
     } else if (value == ".") {
-        console.log(value)
         if (buffer.includes(value)) {
             return;
         }
