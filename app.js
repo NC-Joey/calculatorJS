@@ -122,8 +122,8 @@ const handleSymbols = (value => {
         handleArithmetics(parseFloat(buffer));
         buffer = result;
         screen.innerText = result;
-        if (screen.innerText.length > 11) {
-            result > 99999999999? result = result.toExponential(3):result = result.toFixed(4);
+        if (screen.innerText.length > 10) {
+            result > 9999999999? result = result.toExponential(3):result = result.toFixed(4);
         }
         buffer = result;
         screen.innerText = buffer;
